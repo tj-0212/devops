@@ -1,0 +1,111 @@
+title:decentralised->distributed version control system
+description:Dev1 can share code to dev2 using dvs or mimic central distributed system 
+fork:creating a copy of a existing system.
+say dev1 has forked a system named GIT the can push the changes to forked 
+system and further ask other dev to take changes from forked system
+* communication between devs.
+git:
+* open source:download and implenent to their organisation and coder can submit their code to the created git.
+github:
+*usability,issues commenting, review,project traking and management
+* it is a solution on top of git ,like git lab..ie improvising exixting git
+* you can make an EC2 instance and download git and start working on it.
+Download git @ URL :https://git-scm.com/downloads
+open cmd to check your git installation
+ss-234
+title:commands
+1. git init: initialies git repository
+ss-235
+create a directory using mkdir,
+here im using existing folder(cd command).
+once you are in the directory
+ type git init
+this initialses the gt=it on the current file and it is a hidden file .git
+everything in git is tracked as object(part REFS)
+config hooks and head
+2. Git status:
+ss-235
+gives info on branch,commits untracked files(versioning).
+3. Git add: add files to track 
+git add file name ss-236 , git add . to add all ss-237
+ss-238 indicated the modification done in txt file
+3.git diff gives exact modification done to a file ss-239
+
+Versioning in git is called commit
+4. git commit : The git commit always comes wth the message
+$git commit -m "this is my first version" ss-241
+now if we check the status again using
+$git status:
+working tree clean indicates that git has understood all the changer you have done
+we can say that git ack the chanes only wen its through git add or git commit
+ss-243
+5.git log: this lists out all the commits made whicg helps in version control 
+$git log ss-244
+we can observe that each commots has its commit id, this leads to another command
+6.git reset:
+if we want to stick to the previos version we can use git reset with version commit id.
+$git reset -- hard "id"
+
+7.git push: this is used to push code from local to the remote repository you created
+few steps include
+* $ git add origin "repolink"
+/git remote set-url origin https://github.com/tj-0212/Tejas-MiniProject.git
+*initiate remote command $git remote -v:(fetch),(push)
+* $ git push -u origin master:note there was only one brach and head pointing to that ss-245
+if encountered large file use ss-246 commands
+$ git rm --cached giant_file
+# Stage our giant file for removal, but leave it on disk
+
+git commit --amend -CHEAD
+# Amend the previous commit with your change
+# Simply making a new commit won't work, as you need
+# to remove the file from the unpushed history as well
+
+git push
+# Push our rewritten, smaller commi
+title:SHARING
+description:create github account
+create new repository
+public or private
+git branching statergy:
+*deliver releaes with changes frequently
+Branch -it is a seperation on whole project or service
+new functionality can be added or deleted
+ant new changes added will not change the existing functionality
+Lets take an example now we know ola has cabs and auto so in order to compete with radipido they want to introduce bikes
+so they create a new branch called bikes and devolopers work on that branch and if they are confident about the changes they add is to the current exixting functionality and the bike branch is deleted.
+
+8.git branch
+allows users to create branchs basically creating copy of the exixting master branch.
+$ git branch 
+or 
+$git checkout -b branch_name :create branch now current branch with exixting functionality ss-248,249,250
+mergeing:
+$git cherry-pick:merge two branch
+!!failed ss-25
+trying
+9.git merge:
+10.git rebase yet to learn
+
+
+
+title:good branching 
+description:
+the main branch is on the service and an adiitioonal funtionality is yet to be implements and its time to complelte remains uncoved at this situation what we do is me create a branch called feature branch where the new features are added implemented and once the testing is confident thet attach it to main branch.In an organisation a number of feature branch can be implemented and they will eventually get added back to the main /master branch.
+in the master branch active changes are going on
+Release branch : it is the branch which is related to customer delivery
+the release branch is made seperate from master brach as the testing will be contiinoulsy implemented before and while customer delivery and we dont want any changes to be added to the perfectly working version.
+hot fx branches: immediate changes are made and delivered to the customers and for master and release branchs.
+
+
+
+
+
+
+
+
+
+
+
+
+
